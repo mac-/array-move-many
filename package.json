@@ -1,0 +1,38 @@
+{
+	"name": "array-move-many",
+	"version": "1.0.0",
+	"description": "Moves a group of items in an array to a new index",
+	"main": "index.js",
+	"scripts": {
+		"lint": "jshint index.js test/*.js",
+		"test": "mocha --recursive --reporter spec --timeout 3000 test",
+		"test:coverage": "mocha --recursive --require blanket --reporter travis-cov --timeout 3000 test",
+		"test:coverage:html": "mocha --recursive --require blanket --reporter html-cov --timeout 3000 test > coverage.html",
+		"posttest": "npm run test:coverage && npm run lint"
+	},
+	"config": {
+		"blanket": {
+			"pattern": "//^((?!/node_modules/)(?!/test/).)*$/ig",
+			"onlyCwd": true,
+			"data-cover-flags": {
+				"branchTracking": true
+			}
+		},
+		"travis-cov": {
+			"threshold": 100
+		}
+	},
+	"keywords": [
+		"array",
+		"move",
+		"many"
+	],
+	"author": "mac-",
+	"license": "MIT",
+	"devDependencies": {
+		"blanket": "^1.2.3",
+		"jshint": "^2.9.2",
+		"mocha": "^2.4.5",
+		"travis-cov": "^0.2.5"
+	}
+}
